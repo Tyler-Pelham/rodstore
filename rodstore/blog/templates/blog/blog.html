@@ -5,5 +5,18 @@
 {% endblock %}
 
 {% block content %}
+    <section>
     <h1>It's A Blog!</h1>
+
+    {% for post in posts %}
+        <article class="post">
+            <h2>
+                <a href="{% url 'blog:page' slug=post.slug %}">
+                {{ post.title }}
+                </a>
+            </h2>
+            <p>{{ post.body }}</p>
+            <p>{{ post.date }}</p>
+    {% endfor %}
+    </section>
 {% endblock %}
